@@ -1,4 +1,4 @@
-export interface State {
+export interface RUserInfo {
   userInfo?:useInfo
 }
 interface useInfo { 

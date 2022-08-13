@@ -18,3 +18,4 @@ export const step = (instance:AxiosInstance):AxiosInstance=>{
   });
   return instance;
 }
+export default step;

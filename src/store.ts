@@ -10,4 +10,4 @@ if(process.env.NODE_ENV === "development"){
 
 const store = createStore(rootReducer,composeEnhancers(applyMiddleware(thunk)));
 
-export default store
+export default store;

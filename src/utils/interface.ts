@@ -10,7 +10,7 @@ export interface HttpResonse {
   
 }
 export interface ApiResponse<T =any> extends HttpResonse{
-  code:number
-  msg:string
+  code?:number
+  msg?:string
   data:T
 }

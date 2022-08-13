@@ -1,6 +1,6 @@
-import Axios, { AxiosResponse, AxiosError, CanceledError } from "axios";
-import { defaultTo, get } from "lodash";
-import {setpApiIntercerceptor } from ""
+import Axios, { AxiosResponse, AxiosError } from "axios";
+import { defaultTo, get as _get } from "lodash";
+import setpApiIntercerceptor from "./api"
 import ApiError from "./error";
 import { ApiResponseParser, RequestConfig,ApiResponse } from "./interface";
 const requestInstance = Axios.create({
@@ -14,8 +14,8 @@ const converAxiosErrorToApiError = (error: AxiosError): ApiError => {
   let message = error.message;
   const response = error.response;
   if (response) {
-    code = defaultTo(get(response, "data.code"), 0 - response.status);
-    message = defaultTo(get(response, "data.message"), message);
+    code = defaultTo(_get(response, "data.code"), 0 - response.status);
+    message = defaultTo(_get(response, "data.message"), message);
   }
   return new ApiError(message, code, error.config, error.response, error);
 };
@@ -45,8 +45,8 @@ const prepareRequest = (config?:RequestConfig)=>{
   }
 }
 
-export const handleHttpResponse = (response:AxiosResponse<AxiosResponse<T>>,parser?:ApiResponseParser<T>):T=>{
-  const data:ApiResponse<T> = response.data;
+export const handleHttpResponse = (response:AxiosResponse<AxiosResponse>,parser?:ApiResponseParser<any>):any=>{
+  const data:ApiResponse<any> = response.data;
   if(parser){
     return parser(response);
   }
@@ -82,3 +82,5 @@ export const get = async <T =any> (
 }
 
 setpApiIntercerceptor(requestInstance);
+
+export default requestInstance;
