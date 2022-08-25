@@ -1,5 +1,5 @@
 export const initState = {
   userInfo: {
-    name:"123"
+    name: '123'
   }
-};
+}

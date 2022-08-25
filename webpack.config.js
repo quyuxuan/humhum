@@ -9,6 +9,7 @@ const {
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const isProd = process.env.NODE_ENV === 'production';
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 const mode = isProd ? 'production' : 'development';
 const deployType = process.env.DEPLOY_TYPE || mode;
@@ -229,6 +230,11 @@ module.exports = {
   },
   plugins: [
     isProd && new CleanWebpackPlugin(),
+    new ESLintPlugin({
+      extensions: [
+        'vue', 'html', 'js', 'ts', 'jsx', 'tsx'
+      ]
+    }),
     new Dotenv({
       path: path.join(PROJECT_ROOT, `config/${deployType || 'production'}.cfg`), // load this now instead of the ones in '.env'
       safe: true, // load '.env.example' to verify the '.env' variables are all set. Can also be a string to a different file.
@@ -263,5 +269,12 @@ module.exports = {
       publicPath: process.env.SOURCEMAP_PUBLIC_URL,
     }),
   ].filter(Boolean),
-
+  devServer: {
+    port:"8080",
+    hot: true,
+    open: true,
+    historyApiFallback:{
+      disableDotRule: true
+    }
+  },
 }

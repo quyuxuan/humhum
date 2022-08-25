@@ -1,20 +1,25 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import { Provider } from "react-redux";
+import React from 'react'
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
+import { Provider } from 'react-redux'
 
-import Home from "./pages/Home";
-import store from "./store";
-import "./App.less";
+import Container from './container/container'
+import Login from './pages/Login'
+import store from './store'
+import './App.less'
 
+// import { ContainerRouters } from "./roouter";
 export const App = () => {
   return (
-    <Routes>
+    <BrowserRouter>
       <Provider store={store}>
-        <Route path="/" element={<Home />}>
-          <Route path="page" element={<Home />} />
-        </Route>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="Home" element={<Container />}>
+            <Route path="1" element={<Login />} />
+          </Route>
+        </Routes>
       </Provider>
-    </Routes>
-  );
-};
-export default App;
+    </BrowserRouter>
+  )
+}
+export default App

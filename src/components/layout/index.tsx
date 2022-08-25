@@ -1,15 +1,15 @@
-import React from "react";
-import { Layout } from "antd";
-import HeaderComponent from "./Header";
-import SiderComponent from "./sider";
-import { connect } from "react-redux";
-import { ReduxStore } from "src/modals/index";
+import React from 'react'
+import { Layout } from 'antd'
+import HeaderComponent from './Header'
+import SiderComponent from './sider'
+import { connect } from 'react-redux'
+import { ReduxStore } from 'src/modals/index'
+import { Outlet } from 'react-router-dom'
 
-const { Content } = Layout;
+const { Content } = Layout
 
 const LayoutComponent = (props: any) => {
-  const { children } = props;
-
+  console.log(props)
   return (
     <Layout className="width100">
       <SiderComponent />
@@ -17,21 +17,16 @@ const LayoutComponent = (props: any) => {
         <HeaderComponent />
         <Content
           className="site-layout-background"
-          style={{
-            margin: "24px 16px",
-            padding: 24,
-            minHeight: 280,
-          }}
         >
-          {children}
+          <Outlet></Outlet>
         </Content>
       </Layout>
     </Layout>
-  );
-};
+  )
+}
 
 const mappStateToProps = (state: ReduxStore) => ({
   userInfo: state.UseInfo,
-});
+})
 
-export default connect(mappStateToProps)(LayoutComponent);
+export default connect(mappStateToProps)(LayoutComponent)

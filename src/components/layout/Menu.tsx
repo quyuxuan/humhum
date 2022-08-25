@@ -1,18 +1,18 @@
-import React from 'react';
-import {Menu} from "antd";
-import {MenuInfo} from "rc-menu/lib/interface";
-import {LOGOUT} from "./menuType";
+import React from 'react'
+import { Menu } from 'antd'
+import { MenuInfo } from 'rc-menu/lib/interface'
+import { LOGOUT } from './menuType'
 
-export const MenuComponent =() => {
-  const handleClickMenuItem = (Item:MenuInfo)=>{
+export const MenuComponent = () => {
+  const handleClickMenuItem = (Item:MenuInfo) => {
     console.log(Item)
-    const {key} = Item;
-    switch (key){
+    const { key } = Item
+    switch (key) {
       case LOGOUT:
-        console.log('执行退出登录');
-        break;
+        console.log('执行退出登录')
+        break
       default:
-        console.log('没有相应的处理');
+        console.log('没有相应的处理')
     }
   }
   return (
@@ -20,7 +20,7 @@ export const MenuComponent =() => {
     onClick={handleClickMenuItem}
     items={[
       {
-        label:"退出登录",
+        label: '退出登录',
         key: LOGOUT,
       },
     ]}
@@ -28,4 +28,4 @@ export const MenuComponent =() => {
   )
 }
 
-export default MenuComponent;
+export default MenuComponent

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Container =  React.lazy(()=>import("../container/container"));
+const Home =  React.lazy(()=>import("../pages/Home"));
 
 export type Route = {
   icon?:string
@@ -13,12 +13,12 @@ export const routes:Route[] = [{
   icon:'home',
   path:'/',
   name:"主页",
-  component:Container,
+  component:Home,
 }]
 
-export const ContainerRouters = [{
+export const ContainerRouters:Route[] = [{
   icon:'home',
-  path:'/',
+  path:'/con',
   name:"剧本",
-  component:Container,
+  component:Home,
 }]

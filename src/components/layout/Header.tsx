@@ -1,12 +1,11 @@
 import React from 'react'
-import { Layout,Avatar,Badge,Dropdown} from 'antd';
+import { Layout, Avatar, Badge, Dropdown } from 'antd'
+import './index.less'
+import Menu from './Menu'
 
-const { Header } = Layout;
-import "./index.less";
-import Menu from "./Menu"
+const { Header } = Layout
 
-
-export default function HeaderComponent() {
+export default function HeaderComponent () {
   return (
     <>
       <Header className='width100 header-color flex-space-between padding-sm'>
@@ -20,7 +19,7 @@ export default function HeaderComponent() {
               <Avatar src="https://joeschmoe.io/api/v1/random" />
             </Badge>
           </span>
-          <Dropdown overlay={Menu} placement = {"bottom"}>
+          <Dropdown overlay={Menu} placement = {'bottom'}>
             <Avatar src="https://joeschmoe.io/api/v1/random" />
           </Dropdown>
         </div>
