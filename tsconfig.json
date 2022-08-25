@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./",
     "target": "ESNEXT",
     "module": "ESNext",
     "lib": [
@@ -31,11 +31,23 @@
     "allowJs": true,
     "experimentalDecorators": true,
     "paths": {
-      "@/*": [
-        "src/*"
+      "@components/": [
+        "./src/components/*"
       ],
-      "@mock/*": [
-        "mock/*"
+      "@":[
+        "src"
+      ],
+      "pages": [
+        "src/pages"
+      ],
+      "@utils":[
+        "src/utils/*"
+      ],
+      "@services":[
+        "./src/services/*"
+      ],
+      "@models":[
+        "./src/models/*"
       ],
     },
     "typeRoots": [
@@ -45,12 +57,8 @@
   },
   "include": [
     "src",
-    "packages",
-    "typings"
   ],
   "exclude": [
     "node_modules",
-    "build",
-    "jest"
   ]
 }

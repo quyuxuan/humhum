@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { ReduxStore } from "../../modal/index";
-import { updateUserInfo } from "../../modal/user/action";
+import { ReduxStore } from "../../modals/index";
+import { updateUserInfo } from "../../modals/user/action";
 import { ILoginProps } from "./interface";
 
 export const Login = (props: ILoginProps) => {
@@ -16,7 +16,7 @@ export const Login = (props: ILoginProps) => {
   };
   return (
     <>
-      <div onClick={handleClick}>1231231</div>
+      <div onClick={handleClick}>123123</div>
     </>
   );
 
