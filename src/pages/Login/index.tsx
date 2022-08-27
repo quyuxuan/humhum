@@ -11,7 +11,7 @@ export const Login = (props: ILoginProps) => {
   const [writeName, setWriteName] = useState<string>('')
   const intervalRef = useRef<any>(null)
   const name = useTypewriter(writeName)
-  const MagicOcean = ['仙女小姐姐爱你哦,可以做我女朋友嘛?,好呀']
+  const MagicOcean = ['仙女小姐姐爱你哦,可以做我女朋友嘛?,好呀,好好好']
   console.log(123123123)
   useEffect(() => {
     intervalRef.current = setTimeout(() => {
